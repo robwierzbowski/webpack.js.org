@@ -136,6 +136,9 @@
         <loc>https://webpack.js.org/concepts/output/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/concepts/plugins/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/concepts/targets/index.html</loc>
     </url>
     <url>
@@ -158,9 +161,6 @@
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/externals/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/concepts/plugins/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/module/index.html</loc>
@@ -284,6 +284,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/guides/installation/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/guides/integrations/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/guides/lazy-loading/index.html</loc>
@@ -569,9 +572,6 @@
     </url>
     <url>
         <loc>https://webpack.js.org/pluginsapi/template/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/guides/integrations/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/compiler/index.html</loc>

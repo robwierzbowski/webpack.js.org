@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/cad4b10f2caf24ee540d.css" rel="stylesheet">
+      <link href="/8586d92dff6f3db22411.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -281,6 +281,23 @@
     warningsFilter<span class="token punctuation">:</span> <span class="token string">&quot;filter&quot;</span> <span class="token operator">|</span> <span class="token operator">/</span>filter<span class="token operator">/</span> <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token string">&quot;filter&quot;</span><span class="token punctuation">,</span> <span class="token operator">/</span>filter<span class="token operator">/</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token punctuation">(</span>warning<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean">true</span><span class="token operator">|</span><span class="token boolean">false</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+</code></pre>
+<p>If you want to use one of the pre-defined behaviours e.g. <code>&apos;minimal&apos;</code> but still override one or more of the rules, see <a href="https://github.com/webpack/webpack/blob/master/lib/Stats.js#L1394-L1401">the source code</a>. You would want to copy the configuration options from <code>case &apos;minimal&apos;: ...</code> and add your additional rules while providing an object to <code>stats</code>.</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code class="lang-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">//..</span>
+  stats<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// copied from `&apos;minimal&apos;`</span>
+    all<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    modules<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    maxModules<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    errors<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    warnings<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// our additional options</span>
+    moduleTrace<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    errorDetails<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 class="header">
         <a class="anchor" aria-hidden="true" href="#sorting-fields" id="sorting-fields"></a>
