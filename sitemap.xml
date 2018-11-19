@@ -67,6 +67,9 @@
         <loc>https://webpack.js.org/writers-guide/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/api/cli/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/api/compilation-hooks/index.html</loc>
     </url>
     <url>
@@ -76,9 +79,6 @@
         <loc>https://webpack.js.org/api/hot-module-replacement/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/cli/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/api/loaders/index.html</loc>
     </url>
     <url>
@@ -86,9 +86,6 @@
     </url>
     <url>
         <loc>https://webpack.js.org/api/module-variables/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/api/node/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/parser/index.html</loc>
@@ -104,6 +101,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/api/stats/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/api/node/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/concepts/configuration/index.html</loc>
@@ -382,9 +382,6 @@
         <loc>https://webpack.js.org/loaders/json5-loader/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/loaders/less-loader/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/loaders/mocha-loader/index.html</loc>
     </url>
     <url>
@@ -574,13 +571,13 @@
         <loc>https://webpack.js.org/pluginsapi/template/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/loaders/less-loader/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/api/plugins/compilation/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/compiler/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/api/plugins/module-factories/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/parser/index.html</loc>
@@ -590,6 +587,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/tapable/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/api/plugins/module-factories/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/template/index.html</loc>
