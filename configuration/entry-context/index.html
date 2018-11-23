@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/acd85660cde47ce4e400.css" rel="stylesheet">
+      <link href="/2560f8f639552201a0e2.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -62,6 +62,10 @@
         <span class="text">Dynamic entry</span>
         <a aria-label="Dynamic entry" class="icon-link" href="#dynamic-entry"></a>
       </h3>
+<p>If a function is passed then it will be invoked on every <a href="/api/compiler-hooks/#make">make</a> event.</p>
+<blockquote>
+<p>Note that the make event triggers when webpack starts and for every invalidation when <a href="/configuration/watch/">watching for file changes</a>.</p>
+</blockquote>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">//...</span>
   entry<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;./demo&apos;</span>
@@ -71,6 +75,14 @@
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">//...</span>
   entry<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;./demo&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;./demo2&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>For example: you can use dynamic entries to get the actual entries from an external source (remote server, file system content or database):</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">entry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">fetchPathsFromSomeExternalSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns a promise that will be resolved with something like [&apos;src/main-layout.js&apos;, &apos;src/admin-layout.js&apos;]</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>When combining with the <a href="/configuration/output#output-library"><code>output.library</code></a> option: If an array is passed only the last item is exported.</p>
