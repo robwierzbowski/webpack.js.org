@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/81163b0946305da6ac67.css" rel="stylesheet">
+      <link href="/16fc962b1fc7ac6f1fe5.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -176,8 +176,8 @@
         <a aria-label="Options" class="icon-link" href="#options"></a>
       </h2>
 <p>There is currently exactly one option: <code>publicPath</code>.
-If you are using a relative <code>publicPath</code> in webpack&apos;s <a href="https://webpack.js.org/configuration/output/#output-publicpath">output options</a> and extracting to a file with the <code>file-loader</code>, you might need this to account for the location of your extracted file.</p>
-<p>Example:</p>
+If you are using a relative <code>publicPath</code> in webpack&apos;s <a href="https://webpack.js.org/configuration/output/#output-publicpath">output options</a> and extracting to a file with the <code>file-loader</code>, you might need this to account for the location of your extracted file. <code>publicPath</code> may be defined as a string or a function that accepts current <a href="https://webpack.js.org/api/loaders/#the-loader-context">loader context</a> as single argument.</p>
+<p>Example with publicPath option as a string:</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
         path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./dist&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -198,6 +198,39 @@ If you are using a relative <code>publicPath</code> in webpack&apos;s <a href="h
                         loader<span class="token punctuation">:</span> <span class="token string">&quot;extract-loader&quot;</span><span class="token punctuation">,</span>
                         options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
                             publicPath<span class="token punctuation">:</span> <span class="token string">&quot;../&quot;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                        loader<span class="token punctuation">:</span> <span class="token string">&quot;css-loader&quot;</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Example with publicPath option as a function:</p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./dist&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        publicPath<span class="token punctuation">:</span> <span class="token string">&quot;dist/&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        loader<span class="token punctuation">:</span> <span class="token string">&quot;file-loader&quot;</span><span class="token punctuation">,</span>
+                        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                            name<span class="token punctuation">:</span> <span class="token string">&quot;assets/[name].[ext]&quot;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                        loader<span class="token punctuation">:</span> <span class="token string">&quot;extract-loader&quot;</span><span class="token punctuation">,</span>
+                        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                            <span class="token comment">// dynamically return a relative publicPath based on how deep in directory structure the loaded file is in /src/ directory</span>
+                            publicPath<span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;../&apos;</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">relative</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;src&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> context<span class="token punctuation">.</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">,</span>
                         <span class="token punctuation">}</span>
                     <span class="token punctuation">}</span><span class="token punctuation">,</span>
                     <span class="token punctuation">{</span>
